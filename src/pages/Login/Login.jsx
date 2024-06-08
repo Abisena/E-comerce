@@ -83,7 +83,7 @@ const Login = () => {
         </button>
       </div>
       <p>
-        Dont have an account? <Link to="/register">Register here</Link>
+        Dont have an account? <Link to="/">Register here</Link>
       </p>
 
       {/* Toast container */}
