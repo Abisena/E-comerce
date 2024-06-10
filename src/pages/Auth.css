@@ -1,19 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 html,
 body {
   height: 100%;
   margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f0f0f0;
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
 
 .auth-container {
@@ -28,6 +26,8 @@ body {
 
 .auth-container h2 {
   text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .form-group {
@@ -37,25 +37,32 @@ body {
 .form-group label {
   display: block;
   margin-bottom: 5px;
-  color: black;
+  color: #333;
+  font-weight: 500;
 }
 
 .form-group input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   box-sizing: border-box;
-  border-radius: 10px;
-  height: 40px; /* Sesuaikan dengan keinginan Anda */
-  background-color: #000000; /* Warna latar belakang input */
-  color: white; /* Warna teks input */
-  border: 1px solid #333; /* Garis tepi input */
+  border-radius: 5px;
+  height: 40px;
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input::placeholder {
-  color: #999; /* Warna teks placeholder */
+  color: #999;
 }
 
-button {
+.form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+button[type="submit"] {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
@@ -64,32 +71,59 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
+button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
 .social-buttons button {
-  background-color: #000000;
+  width: 100%;
+  padding: 10px;
   margin-top: 10px;
-  color: white;
-}
-
-.social-buttons button:nth-child(2) {
   background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .social-buttons button:hover {
-  background-color: #29487d;
-}
-
-.social-buttons button:nth-child(2):hover {
   background-color: #1b1b1b;
 }
 
 p {
   text-align: center;
   margin-top: 20px;
-  color: black;
+  color: #333;
+}
+
+/* Styling for role buttons */
+.role-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.role-buttons button {
+  flex: 1;
+  padding: 10px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.role-buttons button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.role-buttons button:hover {
+  background-color: #ccc;
 }

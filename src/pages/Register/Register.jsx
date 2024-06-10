@@ -6,13 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [role, setRole] = useState("User");
+  const navigate = useNavigate();
 
   const handleEmailRegister = async (e) => {
     e.preventDefault();
@@ -21,24 +22,26 @@ const Register = () => {
         username,
         email,
         password,
+        role,
       });
 
       console.log(response.data);
-      // Set state redirect menjadi true jika registrasi berhasil
       if (response.status === 200) {
         toast.success("Registration successful!");
-        navigate("/login"); // Navigate to /login
+        navigate("/login");
       }
     } catch (error) {
       console.error("Registration failed:", error.response.data);
       toast.error("Registration failed. Please try again.");
-      // Handle registration failure
     }
   };
 
   const handleSocialRegister = (platform) => {
-    // Handle social registration logic
     console.log(`Register with ${platform}`);
+  };
+
+  const handleRoleChange = (selectedRole) => {
+    setRole(selectedRole);
   };
 
   return (
@@ -78,6 +81,26 @@ const Register = () => {
             required
           />
         </div>
+        <div className="form-group">
+          <label>Role:</label>
+          <div className="role-buttons">
+            {/* Tombol untuk memilih role */}
+            <button
+              type="button"
+              className={role === "User" ? "active" : ""}
+              onClick={() => handleRoleChange("User")}
+            >
+              User
+            </button>
+            <button
+              type="button"
+              className={role === "Penjual" ? "active" : ""}
+              onClick={() => handleRoleChange("Penjual")}
+            >
+              Seller
+            </button>
+          </div>
+        </div>
         <button type="submit">Register</button>
       </form>
       <div className="social-buttons">
@@ -90,7 +113,6 @@ const Register = () => {
         Already have an account? <Link to="/login">Login here</Link>
       </p>
 
-      {/* Toast container */}
       <ToastContainer />
     </div>
   );

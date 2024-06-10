@@ -60,6 +60,7 @@ const Login = () => {
             type="email"
             id="email"
             value={email}
+            placeholder="Enter your Email"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -70,6 +71,7 @@ const Login = () => {
             type="password"
             id="password"
             value={password}
+            placeholder="Enter your Password"
             onChange={(e) => setPassword(e.target.value)}
             required
           />
@@ -82,6 +84,9 @@ const Login = () => {
           Login with GitHub
         </button>
       </div>
+      <p>
+        <Link to="/reset/password">Forgot password?</Link>
+      </p>
       <p>
         Dont have an account? <Link to="/">Register here</Link>
       </p>
